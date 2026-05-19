@@ -1510,13 +1510,7 @@ server <- function(input, output, session) {
    })
    
    cvs_input<-reactive({
-     data <- imputed_data()
-     if (input$exp == "LFQ" & input$lfq_type == "Spectral Count") {
-       assay(data) <- log2(assay(data))
-     } else if (input$exp == "LFQ-peptide" & input$lfq_pept_type == "Spectral Count") {
-       assay(data) <- log2(assay(data))
-     }
-     plot_cvs(data, id="label", scale=!input$cvs_full_range, check.names=F)
+     plot_cvs(dep(), id="label", scale=!input$cvs_full_range, check.names=F)
    })
    
    num_total <- reactive({
