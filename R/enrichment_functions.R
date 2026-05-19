@@ -175,7 +175,7 @@ test_ora_mod <- function(dep,
 
       # Load TERM2GENE once before the contrast loop (gene symbols normalised to uppercase)
       if (databases == "Hallmark") {
-        term2gene <- msigdbr::msigdbr(species = "Homo sapiens", category = "H") %>%
+        term2gene <- msigdbr::msigdbr(species = "Homo sapiens", collection = "H") %>%
           transmute(gs_name, gene_symbol = toupper(gene_symbol))
       } else if (databases %in% c("KEGG", "KEGG (Mouse)", "WikiPathways", "WikiPathways (Mouse)",
                                    "Reactome", "MF", "BP", "CC")) {
@@ -270,7 +270,7 @@ test_ora_mod <- function(dep,
       }
 
       if (databases == "Hallmark") {
-        term2gene <- msigdbr::msigdbr(species = "Homo sapiens", category = "H") %>%
+        term2gene <- msigdbr::msigdbr(species = "Homo sapiens", collection = "H") %>%
           transmute(gs_name, gene_symbol = toupper(gene_symbol))
       } else if (databases %in% c("KEGG", "KEGG (Mouse)", "WikiPathways", "WikiPathways (Mouse)",
                                    "Reactome", "MF", "BP", "CC")) {
